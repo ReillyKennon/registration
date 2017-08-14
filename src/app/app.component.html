@@ -1,0 +1,33 @@
+<div class="reg">
+  <h1>{{ title }}</h1>
+
+  <form (submit)="onSubmit()">
+    <input type="text" name="first" placeholder="first name"
+    required
+    minlength="4"
+    maxlength="24"
+    [(ngModel)]="User.first"
+    #first="ngModel"
+    >
+    <div *ngIf="!first.valid">First name too short</div>
+
+    <input type="text" name="last" placeholder="last name"
+    required
+    minlength="4"
+    maxlength="24"
+    [(ngModel)]="User.last"
+    #last="ngModel"
+    >
+    <div *ngIf="!last.valid">Last name too short</div>
+
+
+    <input type="text" name="email" placeholder="email">
+    <input type="text" name="password" placeholder="password">
+    <input type="text" name="confirm_password" placeholder="confirm password">
+
+    <input type="submit" value="submit">
+
+  </form>
+</div>
+
+{{ User | json }}
